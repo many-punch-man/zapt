@@ -1,0 +1,3 @@
+[submodule "zapt-ui"]
+	path = zapt-ui
+	url = https://many-punch-man@github.com/many-punch-man/zapt-ui.git
