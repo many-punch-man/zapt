@@ -1,0 +1,2 @@
+com.opv2.zapt.framework.tracer.config.ZaptTracerAutoConfiguration
+com.opv2.zapt.framework.tracer.config.ZaptMetricsAutoConfiguration

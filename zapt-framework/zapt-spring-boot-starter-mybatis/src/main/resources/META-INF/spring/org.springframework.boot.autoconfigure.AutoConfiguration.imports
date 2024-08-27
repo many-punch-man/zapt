@@ -1,0 +1,3 @@
+com.opv2.zapt.framework.datasource.config.ZaptDataSourceAutoConfiguration
+com.opv2.zapt.framework.mybatis.config.ZaptMybatisAutoConfiguration
+com.opv2.zapt.framework.translate.config.ZaptTranslateAutoConfiguration

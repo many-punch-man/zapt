@@ -1,0 +1,2 @@
+com.opv2.zapt.framework.redis.config.ZaptRedisAutoConfiguration
+com.opv2.zapt.framework.redis.config.ZaptCacheAutoConfiguration

@@ -1,0 +1,3 @@
+com.opv2.zapt.framework.security.config.ZaptSecurityAutoConfiguration
+com.opv2.zapt.framework.security.config.ZaptWebSecurityConfigurerAdapter
+com.opv2.zapt.framework.operatelog.config.ZaptOperateLogConfiguration

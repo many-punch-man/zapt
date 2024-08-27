@@ -1,0 +1,6 @@
+com.opv2.zapt.framework.apilog.config.ZaptApiLogAutoConfiguration
+com.opv2.zapt.framework.jackson.config.ZaptJacksonAutoConfiguration
+com.opv2.zapt.framework.swagger.config.ZaptSwaggerAutoConfiguration
+com.opv2.zapt.framework.web.config.ZaptWebAutoConfiguration
+com.opv2.zapt.framework.xss.config.ZaptXssAutoConfiguration
+com.opv2.zapt.framework.banner.config.ZaptBannerAutoConfiguration

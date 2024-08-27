@@ -1,0 +1,2 @@
+com.opv2.zapt.framework.quartz.config.ZaptQuartzAutoConfiguration
+com.opv2.zapt.framework.quartz.config.ZaptAsyncAutoConfiguration

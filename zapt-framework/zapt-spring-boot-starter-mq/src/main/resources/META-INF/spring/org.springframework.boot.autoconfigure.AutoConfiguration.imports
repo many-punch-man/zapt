@@ -1,0 +1,3 @@
+com.opv2.zapt.framework.mq.redis.config.ZaptRedisMQProducerAutoConfiguration
+com.opv2.zapt.framework.mq.redis.config.ZaptRedisMQConsumerAutoConfiguration
+com.opv2.zapt.framework.mq.rabbitmq.config.ZaptRabbitMQAutoConfiguration

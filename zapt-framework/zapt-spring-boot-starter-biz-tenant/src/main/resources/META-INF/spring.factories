@@ -1,0 +1,2 @@
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.opv2.zapt.framework.tenant.core.mq.kafka.TenantKafkaEnvironmentPostProcessor

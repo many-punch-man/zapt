@@ -1,0 +1,4 @@
+com.opv2.zapt.framework.idempotent.config.ZaptIdempotentConfiguration
+com.opv2.zapt.framework.lock4j.config.ZaptLock4jConfiguration
+com.opv2.zapt.framework.ratelimiter.config.ZaptRateLimiterConfiguration
+com.opv2.zapt.framework.signature.config.ZaptApiSignatureAutoConfiguration
