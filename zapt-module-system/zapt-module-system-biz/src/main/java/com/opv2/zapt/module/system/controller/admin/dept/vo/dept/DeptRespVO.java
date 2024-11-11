@@ -12,6 +12,8 @@ public class DeptRespVO {
     @Schema(description = "部门编号", example = "1024")
     private Long id;
 
+    private String code;
+
     @Schema(description = "部门名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "芋道")
     private String name;
 
@@ -23,6 +25,8 @@ public class DeptRespVO {
 
     @Schema(description = "负责人的用户编号", example = "2048")
     private Long leaderUserId;
+
+    private String leaderUserName;
 
     @Schema(description = "联系电话", example = "15601691000")
     private String phone;

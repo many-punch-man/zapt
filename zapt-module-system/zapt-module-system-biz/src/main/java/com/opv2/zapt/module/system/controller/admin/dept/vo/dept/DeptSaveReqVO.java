@@ -14,8 +14,11 @@ import jakarta.validation.constraints.Size;
 @Data
 public class DeptSaveReqVO {
 
-    @Schema(description = "部门编号", example = "1024")
+    @Schema(description = "部门id", example = "1024")
     private Long id;
+
+    @Schema(description = "部门编号",example = "100")
+    private String code;
 
     @Schema(description = "部门名称", requiredMode = Schema.RequiredMode.REQUIRED, example = "芋道")
     @NotBlank(message = "部门名称不能为空")
@@ -31,6 +34,9 @@ public class DeptSaveReqVO {
 
     @Schema(description = "负责人的用户编号", example = "2048")
     private Long leaderUserId;
+
+    @Schema(description = "负责人的名称", example = "张三")
+    private String leaderUserName;
 
     @Schema(description = "联系电话", example = "15601691000")
     @Size(max = 11, message = "联系电话长度不能超过11个字符")

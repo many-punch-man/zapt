@@ -8,9 +8,11 @@ import com.opv2.zapt.framework.datapermission.core.annotation.DataPermission;
 import com.opv2.zapt.module.system.controller.admin.dept.vo.dept.DeptListReqVO;
 import com.opv2.zapt.module.system.controller.admin.dept.vo.dept.DeptSaveReqVO;
 import com.opv2.zapt.module.system.dal.dataobject.dept.DeptDO;
+import com.opv2.zapt.module.system.dal.dataobject.user.AdminUserDO;
 import com.opv2.zapt.module.system.dal.mysql.dept.DeptMapper;
 import com.opv2.zapt.module.system.dal.redis.RedisKeyConstants;
 import com.google.common.annotations.VisibleForTesting;
+import com.opv2.zapt.module.system.service.user.AdminUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -37,6 +39,9 @@ public class DeptServiceImpl implements DeptService {
     @Resource
     private DeptMapper deptMapper;
 
+    @Resource
+    private AdminUserService adminUserService;
+
     @Override
     @CacheEvict(cacheNames = RedisKeyConstants.DEPT_CHILDREN_ID_LIST,
             allEntries = true) // allEntries 清空所有缓存，因为操作一个部门，涉及到多个缓存
@@ -48,6 +53,14 @@ public class DeptServiceImpl implements DeptService {
         validateParentDept(null, createReqVO.getParentId());
         // 校验部门名的唯一性
         validateDeptNameUnique(null, createReqVO.getParentId(), createReqVO.getName());
+
+        // 冗余负责人名称到表里面
+        if (createReqVO.getLeaderUserId()!=null){
+            AdminUserDO user = adminUserService.getUser(createReqVO.getLeaderUserId());
+            if (user!=null){
+                createReqVO.setLeaderUserName(user.getNickname());
+            }
+        }
 
         // 插入部门
         DeptDO dept = BeanUtils.toBean(createReqVO, DeptDO.class);
@@ -68,6 +81,14 @@ public class DeptServiceImpl implements DeptService {
         validateParentDept(updateReqVO.getId(), updateReqVO.getParentId());
         // 校验部门名的唯一性
         validateDeptNameUnique(updateReqVO.getId(), updateReqVO.getParentId(), updateReqVO.getName());
+
+        // 冗余负责人名称到表里面
+        if (updateReqVO.getLeaderUserId()!=null){
+            AdminUserDO user = adminUserService.getUser(updateReqVO.getLeaderUserId());
+            if (user!=null){
+                updateReqVO.setLeaderUserName(user.getNickname());
+            }
+        }
 
         // 更新部门
         DeptDO updateObj = BeanUtils.toBean(updateReqVO, DeptDO.class);

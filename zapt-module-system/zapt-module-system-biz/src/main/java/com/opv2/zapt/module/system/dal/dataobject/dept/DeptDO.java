@@ -28,6 +28,11 @@ public class DeptDO extends TenantBaseDO {
      */
     @TableId
     private Long id;
+
+    /**
+     * 编号
+     */
+    private String code;
     /**
      * 部门名称
      */
@@ -48,6 +53,13 @@ public class DeptDO extends TenantBaseDO {
      * 关联 {@link AdminUserDO#getId()}
      */
     private Long leaderUserId;
+
+
+    /**
+     * 负责人名称
+     * 关联 {@link AdminUserDO#getNickname()} }
+     */
+    private String leaderUserName;
     /**
      * 联系电话
      */
