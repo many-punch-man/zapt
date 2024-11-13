@@ -10,6 +10,7 @@ import com.opv2.zapt.module.system.controller.admin.dept.vo.dept.DeptSaveReqVO;
 import com.opv2.zapt.module.system.dal.dataobject.dept.DeptDO;
 import com.opv2.zapt.module.system.dal.dataobject.user.AdminUserDO;
 import com.opv2.zapt.module.system.dal.mysql.dept.DeptMapper;
+import com.opv2.zapt.module.system.dal.mysql.user.AdminUserMapper;
 import com.opv2.zapt.module.system.dal.redis.RedisKeyConstants;
 import com.google.common.annotations.VisibleForTesting;
 import com.opv2.zapt.module.system.service.user.AdminUserService;
@@ -40,7 +41,7 @@ public class DeptServiceImpl implements DeptService {
     private DeptMapper deptMapper;
 
     @Resource
-    private AdminUserService adminUserService;
+    private AdminUserMapper adminUserMapper;
 
     @Override
     @CacheEvict(cacheNames = RedisKeyConstants.DEPT_CHILDREN_ID_LIST,
@@ -56,7 +57,7 @@ public class DeptServiceImpl implements DeptService {
 
         // 冗余负责人名称到表里面
         if (createReqVO.getLeaderUserId()!=null){
-            AdminUserDO user = adminUserService.getUser(createReqVO.getLeaderUserId());
+            AdminUserDO user = adminUserMapper.selectById(createReqVO.getLeaderUserId());
             if (user!=null){
                 createReqVO.setLeaderUserName(user.getNickname());
             }
@@ -84,7 +85,7 @@ public class DeptServiceImpl implements DeptService {
 
         // 冗余负责人名称到表里面
         if (updateReqVO.getLeaderUserId()!=null){
-            AdminUserDO user = adminUserService.getUser(updateReqVO.getLeaderUserId());
+            AdminUserDO user = adminUserMapper.selectById(updateReqVO.getLeaderUserId());
             if (user!=null){
                 updateReqVO.setLeaderUserName(user.getNickname());
             }
